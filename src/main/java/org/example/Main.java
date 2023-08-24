@@ -15,13 +15,16 @@ public class Main {
         var leituraRetorno = new LeituraRetornoBancoBrasil();
         var processador = new ProcessarBoletos(leituraRetorno);
         String caminho = "file:///home/vinicius/Documentos/IFTO/6_SEMESTRE/PP/Aula02/getBoleto/banco-brasil-1.csv";
+        String caminhoBra ="file:///home/vinicius/Documentos/IFTO/6_SEMESTRE/PP/Aula02/getBoleto/bradesco-1.csv";
         processador.processar(new URI(caminho));
-
-
+        configurarLeituraRetorno(leituraRetorno);
         //Bradesco
         var leituraRetornoBra = new LeituraRetornoBradesco();
         var processadorBradesco = new ProcessarBoletos(leituraRetornoBra);
-        String caminhoBra ="file:///home/vinicius/Documentos/IFTO/6_SEMESTRE/PP/Aula02/getBoleto/bradesco-1.csv";
         processadorBradesco.processar(new URI(caminhoBra));
+    }
+
+    private static void configurarLeituraRetorno(LeituraRetornoBancoBrasil leituraRetorno) {
+
     }
 }
