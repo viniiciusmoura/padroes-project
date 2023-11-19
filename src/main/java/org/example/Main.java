@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.entity.BoletoBancoBrasil;
+import org.example.entity.BoletoBradesco;
 import org.example.entity.ProcessarBoletos;
 
 import java.net.URI;
@@ -11,12 +13,12 @@ public class Main {
         String caminhoBra ="file:///home/vinicius/Documentos/IFTO/PP/stratgy/padroes-project/bradesco-1.csv";
 
         System.out.println("----Banco do Brasil----");
-        ProcessarBoletos processador = new ProcessarBoletos(ProcessarBoletos::lerBancoBrasil);
+        ProcessarBoletos processador = new ProcessarBoletos(new BoletoBancoBrasil());
         processador.processar(new URI(caminho));
 
-        System.out.println("\n----Banco do Bradesco----");
-        ProcessarBoletos processadorBras = new ProcessarBoletos(ProcessarBoletos::lerBradesco);
-        processadorBras.processar(new URI(caminhoBra));
+        System.out.println("----Banco do Bradesco----");
+        ProcessarBoletos processadorBra = new ProcessarBoletos(new BoletoBradesco());
+        processadorBra.processar(new URI(caminhoBra));
 
     }
 }
